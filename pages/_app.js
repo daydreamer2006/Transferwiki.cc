@@ -1,23 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import '../styles/globals.css';
+import { ThemeProvider } from 'next-themes'
 
-function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  
+export default function App({ Component, pageProps }) {
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={router.asPath}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <Component {...pageProps} />
-      </motion.div>
-    </AnimatePresence>
-  );
+    <ThemeProvider attribute="class">
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
-
-export default MyApp;
