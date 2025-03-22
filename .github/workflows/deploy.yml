@@ -46,8 +46,8 @@ jobs:
       
       - name: Create CNAME file if needed
         run: |
-          if [ -f "docs/CNAME" ]; then
-            cp docs/CNAME ./out/CNAME
+          if [ -f "CNAME" ]; then
+            cp CNAME ./out/CNAME
           fi
       
       - name: Upload artifact

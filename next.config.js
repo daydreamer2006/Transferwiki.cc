@@ -17,8 +17,9 @@ module.exports = withNextra({
     unoptimized: true,
   },
   output: 'export',
-  basePath: isGithubActions ? `/${repo.split('/')[1]}` : '',
-  assetPrefix: isGithubActions ? `/${repo.split('/')[1]}/` : '',
+  // 自定义域名时不需要basePath和assetPrefix
+  basePath: '',
+  assetPrefix: '',
   // 禁用 trailingSlash 以确保URL没有尾部斜杠
   trailingSlash: false,
 });
