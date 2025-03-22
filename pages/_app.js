@@ -1,7 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
